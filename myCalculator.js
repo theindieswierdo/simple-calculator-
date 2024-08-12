@@ -16,7 +16,7 @@ buttons.forEach(button => {
       //this next line of code is a backspace function but it displays the backspace symbol on the screen which annoys me
     } else if (value === '⌫') { //it doesn't delete the last user input on the calculator screen
         operator = '';
-        currentInput = currentInput.slice(0,-1);//removes last element in the string 
+        currentInput = currentInput.substring(0,currentInput.length -1);//removes last element in the string 
         result.textContent = currentInput;//shows new contents in the string
     } else if (value === '=') {
       try {
@@ -29,6 +29,7 @@ buttons.forEach(button => {
     } else if (['+', '-', '*', '/', '%', '^'].includes(value)) {
         operator = value;
         currentInput += value;
+        result.textContent = currentInput;
     } else {
       currentInput += value;
       result.textContent = currentInput;
